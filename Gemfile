@@ -21,6 +21,13 @@ group :development, :test do
   gem "rspec-rails", "~> 7.0.1"
 end
 
+group :test do
+  # Test using browsers.
+  gem "capybara", "~> 3.40"
+  # Interface capybara to chrome headless
+  gem "cuprite"
+end
+
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
