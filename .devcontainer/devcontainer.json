@@ -20,7 +20,7 @@
       "onAutoForward": "silent"
     }
   },
-  "workspaceFolder": "/workspaces/human-essentials",
+  "workspaceFolder": "/workspaces/minimal-cuprite-example ",
   "service": "app",
   "customizations": {
     "vscode": {
