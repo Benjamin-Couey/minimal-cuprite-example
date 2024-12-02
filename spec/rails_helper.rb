@@ -25,13 +25,14 @@ require 'capybara/rspec'
 # Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 require "capybara/cuprite"
-Capybara.register_driver(:cuprite) do |app|
+Capybara.register_driver(:local_cuprite) do |app|
   Capybara::Cuprite::Driver.new(
     app,
-    window_size: [1200, 800]
+    window_size: [1200, 800],
+    browser_options: { "no-sandbox" => nil }
   )
 end
-Capybara.javascript_driver = :cuprite
+Capybara.javascript_driver = :local_cuprite
 
 RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
@@ -65,6 +66,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.before(:each) do
-    driven_by :cuprite
+    driven_by :local_cuprite
   end
 end
